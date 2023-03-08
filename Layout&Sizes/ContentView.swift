@@ -8,14 +8,37 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    //This variable receives the size of the screen
+    let screenSize = UIScreen.main.bounds
+    
+    //Third in hierarchy
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        
+        //Second in hierarchy
+        HStack (alignment: .center) {
+            
+            //First in hierarchy
+            Text("Irmandade Swift")
+                //.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .top)
+                .frame(width: screenSize.width/5, height: screenSize.height/2, alignment: .top)
+                .background(.red)
+                //.offset() -> keeps the original position (displace only)
+            
+            //First in hierarchy
+            Text("Irmandade Swift")
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottom)
+                .background(.blue)
+            //.position() -> really moves the view
+            
+            Circle()
+                .frame(width: 200)
+                .background(.yellow)
+                .foregroundColor(.purple)
         }
-        .padding()
+        .padding(20)
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+        .background(.green)
     }
 }
 

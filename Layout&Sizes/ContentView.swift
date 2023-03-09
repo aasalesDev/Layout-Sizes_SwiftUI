@@ -10,11 +10,29 @@ import SwiftUI
 struct ContentView: View {
     
     //This variable receives the size of the screen
-    let screenSize = UIScreen.main.bounds
+    //let screenSize = UIScreen.main.bounds
     
     //Third in hierarchy
     var body: some View {
         
+        
+        GeometryReader { screenSize in
+            
+            HStack {
+                VStack {
+                    Text("This is a text")
+                    Button("Print Screen Size") {
+                        print(screenSize.size.width)
+                        print(screenSize.size.height)
+                    }
+                }
+            }
+            //.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+            //.background(.green)
+        }
+        .background(.red)
+        
+        /*
         //Second in hierarchy
         HStack (alignment: .center) {
             
@@ -39,6 +57,8 @@ struct ContentView: View {
         .padding(20)
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
         .background(.green)
+         
+         */
     }
 }
 
